@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manjeet - Data Analytics Portfolio</title>
+w3
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+
+        :root {
+            --bg: #0d0f14;
+            --surface: #161920;
+            --surface-hover: #1f232d;
+            --accent: #00e5a0;
+            --blue: #3b82f6;
+            --text: #e8eaf0;
+            --muted: #7a8099;
+            --border: #2a2e3d;
+            --font-body: 'DM Sans', sans-serif;
+            --font-heading: 'Syne', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(13, 15, 20, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        #hero {
+            padding: 160px 0 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(0, 229, 160, 0.1);
+            border: 1px solid rgba(0, 229, 160, 0.2);
+            border-radius: 100px;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 32px;
+            animation: pulse 2s infinite;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--accent);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 229, 160, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 229, 160, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 229, 160, 0); }
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, var(--text), var(--muted));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin-bottom: 48px;
+        }
+
+        .stat-pills {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .stat-pill {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 12px 24px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            font-family: var(--font-heading);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: #00c78b;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 229, 160, 0.2);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface-hover);
+            border-color: var(--muted);
+            transform: translateY(-2px);
+        }
+
+        /* Profile Section */
+        #profile {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(to bottom, var(--bg), rgba(22, 25, 32, 0.3));
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .avatar-circle {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--surface), var(--bg));
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-family: var(--font-heading);
+            color: var(--accent);
+            font-weight: 800;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            position: relative;
+        }
+        
+        .avatar-circle::after {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            background: linear-gradient(45deg, var(--accent), var(--blue)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            opacity: 0.5;
+        }
+
+        .profile-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+
+        .profile-handle {
+            font-size: 1.1rem;
+            color: var(--muted);
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+
+        .profile-bio {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 32px;
+            max-width: 700px;
+        }
+
+        .contact-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .meta-item svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .skill-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .chip {
+            padding: 6px 14px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        #projects {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+        }
+
+        .filters {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--surface);
+            color: var(--text);
+            border-color: var(--muted);
+        }
+
+        .filter-btn.active {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(0, 229, 160, 0.3);
+        }
+
+        .project-thumb {
+            height: 160px;
+            background: linear-gradient(135deg, var(--border), var(--surface-hover));
+            position: relative;
+        }
+        
+        .project-card[data-tool="Excel"] .project-thumb { background: linear-gradient(135deg, #107c41, #185c37); }
+        .project-card[data-tool="Looker Studio"] .project-thumb { background: linear-gradient(135deg, #4285f4, #1a73e8); }
+        .project-card[data-tool="Tableau"] .project-thumb { background: linear-gradient(135deg, #e97627, #c95d18); }
+        .project-card[data-tool="Python"] .project-thumb { background: linear-gradient(135deg, #3776ab, #25537a); }
+        .project-card[data-tool="SQL"] .project-thumb { background: linear-gradient(135deg, #f29111, #d37c0b); }
+
+        .project-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .project-desc {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            padding-top: 16px;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            color: var(--blue);
+            background: rgba(59, 130, 246, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .language {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .lang-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .project-card[data-tool="Excel"] .lang-dot { background: #107c41; }
+        .project-card[data-tool="Looker Studio"] .lang-dot { background: #4285f4; }
+        .project-card[data-tool="Tableau"] .lang-dot { background: #e97627; }
+        .project-card[data-tool="Python"] .lang-dot { background: #3776ab; }
+        .project-card[data-tool="SQL"] .lang-dot { background: #f29111; }
+
+
+        #skills {
+            padding: 100px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .skill-category {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-category h3::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .skill-item {
+            color: var(--muted);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .skill-item::before {
+            content: '▹';
+            color: var(--accent);
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 100px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-title {
+            font-size: 3rem;
+            margin-bottom: 24px;
+        }
+
+        .contact-desc {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .contact-btns {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+            }
+            .contact-meta {
+                justify-content: center;
+            }
+            .skill-chips {
+                justify-content: center;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-inner">
+            <a href="#" class="logo">Manjeet</a>
+            <div class="nav-links">
+                <a href="#profile">Profile</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="container">
+            <div class="badge">
+                <div class="badge-dot"></div>
+                Open to internships & roles
+            </div>
+            <h1 class="hero-title">Hi, I'm Manjeet</h1>
+            <p class="hero-tagline">Data Analyst turning complex datasets into clear, actionable intelligence. I build scalable models, dashboards, and pipelines.</p>
+            
+            <div class="stat-pills">
+                <div class="stat-pill">
+                    <span class="stat-value">3</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-pill">
+                    <span class="stat-value">11</span>
+                    <span class="stat-label">Tools</span>
+                </div>
+            </div>
+
+            <div class="hero-btns">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="[YOUR GOOGLE DRIVE RESUME LINK]" target="_blank" class="btn btn-secondary">Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="profile">
+        <div class="container profile-grid">
+            <div class="avatar-circle">
+                M
+            </div>
+            <div class="profile-info">
+                <h2>Manjeet</h2>
+                <div class="profile-handle">https://github.com/manjeet090223</div>
+                <p class="profile-bio">Data Analyst turning complex datasets into clear, actionable intelligence. I build scalable models, dashboards, and pipelines.</p>
+                
+                <div class="contact-meta">
+                    <div class="meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        Sonipat, Haryana, India
+                    </div>
+                    <div class="meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        manjeet.2024@nst.rishihood.edu.in
+                    </div>
+                    <div class="meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        8901336802
+                    </div>
+                </div>
+
+                <div class="skill-chips">
+                    <div class="chip">Python</div>
+                    <div class="chip">SQL</div>
+                    <div class="chip">Pandas</div>
+                    <div class="chip">NumPy</div>
+                    <div class="chip">Matplotlib</div>
+                    <div class="chip">Seaborn</div>
+                    <div class="chip">Tableau</div>
+                    <div class="chip">Looker Studio</div>
+                    <div class="chip">Power BI</div>
+                    <div class="chip">Excel</div>
+                    <div class="chip">Google Sheets</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Projects</h2>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="All">All</button>
+                    <button class="filter-btn" data-filter="Python">Python</button>
+                    <button class="filter-btn" data-filter="Excel">Excel</button>
+                    <button class="filter-btn" data-filter="Tableau">Tableau</button>
+                    <button class="filter-btn" data-filter="Looker Studio">Looker Studio</button>
+                    <button class="filter-btn" data-filter="SQL">SQL</button>
+                </div>
+            </div>
+
+            <div class="projects-grid">
+
+                
+
+                <!-- Project 3 -->
+                <a href="https://public.tableau.com/views/UberAnalysisDashboard_17771948760350/Dashboard1?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="project-card" data-tool="Tableau">
+                        <div class="project-thumb" style="background-image: url('https://i.pinimg.com/1200x/6c/49/f8/6c49f8bdf5f9176db7e8b8ac8da39751.jpg'); background-size: cover; background-position: center 20%;"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">Uber Analysis Dashboard</h3>
+                            <p class="project-desc">End-to-end analysis of Uber ride data, visualizing demand patterns, fare distribution, and key KPIs through an intuitive Tableau dashboard.</p>
+                            <div class="project-meta">
+                                <div class="project-tags">
+                                    <span class="tag">Tableu</span>
+                                    <span class="tag">Python</span>
+                                </div>
+                                <div class="language">
+                                    <div class="lang-dot"></div>
+                                    Tableau
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                
+
+                <!-- Project 5 -->
+                <a href="https://public.tableau.com/views/SwiggyFinalDashboard/UnivariateAnalysis?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="project-card" data-tool="SQL">
+                        <div class="project-thumb" style="background-image: url('https://i.pinimg.com/1200x/5f/cf/09/5fcf0977c610dc030df70b2e1939ab80.jpg'); background-size: cover; background-position: center;"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">Swiggy Analysis Dashboard</h3>
+                            <p class="project-desc">A data-driven Swiggy dashboard highlighting key metrics like order distribution, pricing trends, and delivery performance for actionable insights.</p>
+                            <div class="project-meta">
+                                <div class="project-tags">
+                                    <span class="tag">Tableu</span>
+                                    <span class="tag">Python</span>
+                                </div>
+                                <div class="language">
+                                    <div class="lang-dot"></div>
+                                    Tableu
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 6 -->
+                <a href="https://github.com/ArchitCodes1204/SectionA_Group9-_retail_store_sales" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="project-card" data-tool="Google Sheets">
+                        <div class="project-thumb" style="background-image: url('https://i.pinimg.com/736x/c9/db/ad/c9dbad5b520de545f27e4585c459ad53.jpg'); background-size: cover; background-position: center;"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">Retail Store Sales Analysis</h3>
+                            <p class="project-desc">Developed an interactive retail sales dashboard to track revenue, product performance, and regional trends, enabling data-driven business decisions.</p>
+                            <div class="project-meta">
+                                <div class="project-tags">
+                                    <span class="tag">Google Sheets</span>
+                                </div>
+                                <div class="language">
+                                    <div class="lang-dot"></div>
+                                    Google Sheets
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Tools</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">SQL</div>
+                        <div class="skill-item">R</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Libraries</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">Pandas</div>
+                        <div class="skill-item">NumPy</div>
+                        <div class="skill-item">Matplotlib</div>
+                        <div class="skill-item">Seaborn</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Visualization</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">Tableau</div>
+                        <div class="skill-item">Power BI</div>
+                        <div class="skill-item">Looker Studio</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Processing</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">Excel</div>
+                        <div class="skill-item">Power Query</div>
+                        <div class="skill-item">Google Sheets</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container contact-content">
+            <h2 class="contact-title">Let's connect</h2>
+            <p class="contact-desc">Currently open for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+            <div class="contact-btns">
+                <a href="mailto:manjeet.2024@nst.rishihood.edu.in" class="btn btn-primary">Email Me</a>
+                <a href="https://www.linkedin.com/in/manjeet-sandhu-aba075352/" target="_blank" class="btn btn-secondary">LinkedIn</a>
+                <a href="https://github.com/manjeet090223" target="_blank" class="btn btn-secondary">GitHub</a>
+                <a href="[YOUR GOOGLE DRIVE RESUME LINK]" target="_blank" class="btn btn-secondary">Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            &copy; <span id="year"></span> Manjeet. Built with purpose.
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                // Filter cards
+                projectCards.forEach(card => {
+                    const tool = card.getAttribute('data-tool');
+                    if (filter === 'All' || tool === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Add smooth scrolling for offset (to handle fixed navbar)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
+                if (target) {
+                    const navbarHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                    window.scrollTo({
+                        top: targetPosition - navbarHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
