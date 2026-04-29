@@ -200,6 +200,7 @@ w3
         .hero-btns {
             display: flex;
             gap: 16px;
+            justify-content: center;
         }
 
         .btn {
@@ -269,6 +270,10 @@ w3
             font-weight: 800;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
             position: relative;
+            background-image: url('assets/profile.jpeg');
+            background-size: cover;
+            background-position: center 30%;
+            overflow: hidden;
         }
         
         .avatar-circle::after {
@@ -639,7 +644,7 @@ w3
             
             <div class="stat-pills">
                 <div class="stat-pill">
-                    <span class="stat-value">3</span>
+                    <span class="stat-value">4</span>
                     <span class="stat-label">Projects</span>
                 </div>
                 <div class="stat-pill">
@@ -658,7 +663,6 @@ w3
     <section id="profile">
         <div class="container profile-grid">
             <div class="avatar-circle">
-                M
             </div>
             <div class="profile-info">
                 <h2>Manjeet</h2>
@@ -740,7 +744,7 @@ w3
 
                 <!-- Project 5 -->
                 <a href="https://public.tableau.com/views/SwiggyFinalDashboard/UnivariateAnalysis?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" style="text-decoration: none; color: inherit;">
-                    <div class="project-card" data-tool="SQL">
+                    <div class="project-card" data-tool="Tableau">
                         <div class="project-thumb" style="background-image: url('https://i.pinimg.com/1200x/5f/cf/09/5fcf0977c610dc030df70b2e1939ab80.jpg'); background-size: cover; background-position: center;"></div>
                         <div class="project-content">
                             <h3 class="project-title">Swiggy Analysis Dashboard</h3>
@@ -778,6 +782,27 @@ w3
                         </div>
                     </div>
                 </a>
+
+
+                <a href="https://public.tableau.com/views/GooglePlayStoreAppsAnalysisDynamicDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="project-card" data-tool="Tableau">
+                        <div class="project-thumb" style="background-image: url('https://i.pinimg.com/736x/cb/24/bf/cb24bf676c920e44f2fd2dc7633447cc.jpg'); background-size: cover; background-position: center;"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">Google Play Store Apps Analysis</h3>
+                            <p class="project-desc">A comprehensive dashboard that helps Google understand marketplace dynamics, optimize monetization models, and improve developer ecosystem health.</p>
+                            <div class="project-meta">
+                                <div class="project-tags">
+                                    <span class="tag">Tableau</span>
+                                    <span class="tag">Python</span>
+                                </div>
+                                <div class="language">
+                                    <div class="lang-dot"></div>
+                                    Tableau
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -793,7 +818,6 @@ w3
                     <div class="skill-list">
                         <div class="skill-item">Python</div>
                         <div class="skill-item">SQL</div>
-                        <div class="skill-item">R</div>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -817,7 +841,7 @@ w3
                     <h3>Data Processing</h3>
                     <div class="skill-list">
                         <div class="skill-item">Excel</div>
-                        <div class="skill-item">Power Query</div>
+
                         <div class="skill-item">Google Sheets</div>
                     </div>
                 </div>
